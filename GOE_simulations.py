@@ -13,7 +13,7 @@ def figure_2a():
                      'Archean2Proterozoic/Sun_2.4Ga.txt')
     initial = {'FO2':1e12,'FCH4_FO2':0.49}
     final = {'FO2':1e12,'FCH4_FO2':0.47}
-    filename = "ZAHNLE_start_FO2=1e12_0.49_end_FO2=1e12_0.47.dat"
+    filename = "results/ZAHNLE_start_FO2=1e12_0.49_end_FO2=1e12_0.47.dat"
     utils.GOE(pc, initial, final, filename, atol = 1e-29)
     
 def figure_2b():
@@ -24,8 +24,8 @@ def figure_2b():
                      'Archean2Proterozoic/Sun_2.4Ga.txt')
     initial = {'FO2':1e12,'FCH4_FO2':0.45}
     final = {'FO2':1.8e12,'FCH4_FO2':0.45}
-    filename = "CASE1_start_FO2=1e12_0.45_end_FO2=1.8e12_0.45.dat"
-    utils.GOE(pc, initial, final, filename, atol=1e-29)
+    filename = "results/CASE1_start_FO2=1e12_0.45_end_FO2=1.8e12_0.45.dat"
+    utils.GOE(pc, initial, final, filename, atol=1e-30)
 
 def figure_2c():
     pc = PhotochemPy('Archean2Proterozoic/species_zahnle2006.dat', \
@@ -35,7 +35,7 @@ def figure_2c():
                      'Archean2Proterozoic/Sun_2.4Ga.txt')
     initial = {'FO2':1e12,'FCH4_FO2':0.49}
     final = {'FO2':1e12,'FCH4_FO2':0.45}
-    filename = "ZAHNLE_start_FO2=1e12_0.49_end_FO2=1e12_0.45.dat"
+    filename = "results/ZAHNLE_start_FO2=1e12_0.49_end_FO2=1e12_0.45.dat"
     utils.GOE(pc, initial, final, filename, atol = 1e-29)
     
 def figure_3a():
@@ -46,7 +46,7 @@ def figure_3a():
                      'Archean2Proterozoic/Sun_2.4Ga.txt')
     initial = {'FO2':1e12,'FCH4_FO2':0.47}
     final = {'FO2':1e12,'FCH4_FO2':0.49}
-    filename = "ZAHNLE_start_FO2=1e12_0.47_end_FO2=1e12_0.49.dat"
+    filename = "results/ZAHNLE_start_FO2=1e12_0.47_end_FO2=1e12_0.49.dat"
     utils.GOE(pc, initial, final, filename)
     
 def figure_3b():
@@ -57,7 +57,7 @@ def figure_3b():
                      'Archean2Proterozoic/Sun_2.4Ga.txt')
     initial = {'FO2':1.8e12,'FCH4_FO2':0.45}
     final = {'FO2':1e12,'FCH4_FO2':0.45}
-    filename = "CASE1_start_FO2=1.8e12_0.45_end_FO2=1e12_0.45.dat"
+    filename = "results/CASE1_start_FO2=1.8e12_0.45_end_FO2=1e12_0.45.dat"
     utils.GOE(pc, initial, final, filename)
     
 def figure_3c():
@@ -68,7 +68,7 @@ def figure_3c():
                      'Archean2Proterozoic/Sun_2.4Ga.txt')
     initial = {'FO2':1e12,'FCH4_FO2':0.45}
     final = {'FO2':1e12,'FCH4_FO2':0.49}
-    filename = "ZAHNLE_start_FO2=1e12_0.45_end_FO2=1e12_0.49.dat"
+    filename = "results/ZAHNLE_start_FO2=1e12_0.45_end_FO2=1e12_0.49.dat"
     utils.GOE(pc, initial, final, filename)
 
 def figure_4b():
@@ -80,7 +80,7 @@ def figure_4b():
     initial = {'FO2':3.1e11,'FCH4_FO2':0.48}
     amplitude = 2.5e10
     period = 1e4
-    filename = "ZAHNLE_FO2=3.100e+11_oscillate_0.480_amp=2.5e10_T=1e4yr.dat" 
+    filename = "results/ZAHNLE_FO2=3.100e+11_oscillate_0.480_amp=2.5e10_T=1e4yr.dat" 
     utils.oscillate(pc, initial, amplitude, period, filename)
     
 def figure_4c():
@@ -92,7 +92,7 @@ def figure_4c():
     initial = {'FO2':3.1e11,'FCH4_FO2':0.45}
     amplitude = 0.7e10
     period = 1e4
-    filename = "ZAHNLE_FO2=3.100e+11_oscillate_0.450_amp=0.7e10_T=1e4yr.dat" 
+    filename = "results/ZAHNLE_FO2=3.100e+11_oscillate_0.450_amp=0.7e10_T=1e4yr.dat" 
     utils.oscillate(pc, initial, amplitude, period, filename)
     
 def figure_4d():
@@ -104,7 +104,7 @@ def figure_4d():
     initial = {'FO2':3.1e11,'FCH4_FO2':0.41}
     amplitude = 2.5e10
     period = 1e4
-    filename = "ZAHNLE_FO2=3.100e+11_oscillate_0.410_amp=2.5e10_T=1e4yr.dat" 
+    filename = "results/ZAHNLE_FO2=3.100e+11_oscillate_0.410_amp=2.5e10_T=1e4yr.dat" 
     utils.oscillate(pc, initial, amplitude, period, filename)
     
 def figure_S3():
@@ -124,7 +124,7 @@ def figure_S3():
     pc.out2in()
     
     yr = 365*24*60*60
-    filename = "ZAHNLE_start_FO2=3.1e11_0.44_end_FH2=1.9e11_FCO=2e10.dat" 
+    filename = "results/ZAHNLE_start_FO2=3.1e11_0.44_end_FH2=1.9e11_FCO=2e10.dat" 
     
     pc.set_surfflux('H2', 1.9e11)
     pc.set_surfflux('CO', 2e10)
@@ -145,8 +145,8 @@ if __name__ == "__main__":
     simulations = [figure_2a, figure_2b, figure_2c, \
                    figure_3a, figure_3b, figure_3c, \
                    figure_4b, figure_4c, figure_4d, \
-                   figure_S3]
-                   
+                   figure_S3]    
+    
     p = Pool(helpers.cpu_count())
     p.map(wrap,simulations)
     

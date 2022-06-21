@@ -10,16 +10,16 @@ First, you will need to install PhotochemPy v0.2.14. You need a MacOS or Linux c
 After installing `conda`, make a new environment with all dependencies
 
 ```sh
-conda create -n photochempy -c conda-forge python=3.9 numpy=1.21 scipy=1.7 scikit-build=0.12 gfortran clang pathos=0.2.8 numba=0.55 jupyter matplotlib=3.5 matplotlib-label-lines=0.4.2
+conda create -n photochempy -c conda-forge python=3.9 numpy=1.21 scipy=1.7 scikit-build=0.12 gfortran clang pathos=0.2.8 numba=0.55 jupyter matplotlib matplotlib-label-lines=0.4.2
 ```
 
 Note, `pathos`, `numba`, `jupyter`, `matplotlib` and `matplotlib-label-lines` are not PhotochemPy dependencies, but you will need them to reproduce plots later. Any recent versions of the above packages should work as of January 2022. I specify versions to make sure this code will still run many years into the future, as packages are updated.
 
-Activate the environment, navigate to `PhotochemPy_v0.2.14`, then install with setup.py
+Activate the environment, navigate to `PhotochemPy`, then install with setup.py
 
 ```sh
 conda activate photochempy
-cd PhotochemPy_v0.2.14
+cd PhotochemPy
 python -m pip install --no-deps --no-build-isolation . -v
 ```
 

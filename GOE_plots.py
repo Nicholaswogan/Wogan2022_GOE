@@ -10,7 +10,7 @@ from PhotochemPy import PhotochemPy, io
 from GOE_utils import get_sweep_results, CH4_flux
 
 def figure_1():
-    FCH4_FO2, FO2, O2, FCH4, CH4, S8, redox_column = get_sweep_results("ArcheanOutgassing_sweep")
+    FCH4_FO2, FO2, O2, FCH4, CH4, S8, redox_column = get_sweep_results("results/ArcheanOutgassing_sweep")
 
     lowerlim = .4
     upperlim = .492
@@ -125,7 +125,7 @@ def figure_1():
     # plt.show()
 
 def figure_2():
-    sol = io.read_evolve_output('ZAHNLE_start_FO2=1e12_0.49_end_FO2=1e12_0.47.dat')
+    sol = io.read_evolve_output('results/ZAHNLE_start_FO2=1e12_0.49_end_FO2=1e12_0.47.dat')
 
     plt.rcParams.update({'font.size': 18})
     fig,[[ax1,ax3],[ax2,ax4]] = plt.subplots(2,2,figsize=[15,9],sharex=False)
@@ -205,7 +205,7 @@ def figure_2():
     ############
     # Figure b #
     ############
-    sol = io.read_evolve_output('CASE1_start_FO2=1e12_0.45_end_FO2=1.8e12_0.45.dat')
+    sol = io.read_evolve_output('results/CASE1_start_FO2=1e12_0.45_end_FO2=1.8e12_0.45.dat')
 
     species = ['O2','CH4']
     labels = ['O$_2$','CH$_4$']
@@ -244,7 +244,7 @@ def figure_2():
     ############
     # Figure c #
     ############
-    sol = io.read_evolve_output('ZAHNLE_start_FO2=1e12_0.49_end_FO2=1e12_0.45.dat')
+    sol = io.read_evolve_output('results/ZAHNLE_start_FO2=1e12_0.49_end_FO2=1e12_0.45.dat')
 
     species = ['O2','CH4']
     labels = ['O$_2$','CH$_4$']
@@ -300,7 +300,7 @@ def figure_3():
     # Figure a #
     ############
 
-    sol = io.read_evolve_output('ZAHNLE_start_FO2=1e12_0.47_end_FO2=1e12_0.49.dat')
+    sol = io.read_evolve_output('results/ZAHNLE_start_FO2=1e12_0.47_end_FO2=1e12_0.49.dat')
 
     species = ['O2','CH4']
     labels = ['O$_2$','CH$_4$']
@@ -328,7 +328,7 @@ def figure_3():
     # Figure b #
     ############
 
-    sol = io.read_evolve_output('CASE1_start_FO2=1.8e12_0.45_end_FO2=1e12_0.45.dat')
+    sol = io.read_evolve_output('results/CASE1_start_FO2=1.8e12_0.45_end_FO2=1e12_0.45.dat')
 
     species = ['O2','CH4']
     labels = ['O$_2$','CH$_4$']
@@ -358,7 +358,7 @@ def figure_3():
     # Figure c #
     ############
 
-    sol = io.read_evolve_output('ZAHNLE_start_FO2=1e12_0.45_end_FO2=1e12_0.49.dat')
+    sol = io.read_evolve_output('results/ZAHNLE_start_FO2=1e12_0.45_end_FO2=1e12_0.49.dat')
     species = ['O2','CH4']
     labels = ['O$_2$','CH$_4$']
     colors = ['C0','C1']
@@ -438,7 +438,7 @@ def figure_4():
     # Figure a #
     ############
 
-    FCH4_FO2, FO2, O2, FCH4, CH4, S8, redox_column = get_sweep_results("ArcheanOutgassing_sweep")
+    FCH4_FO2, FO2, O2, FCH4, CH4, S8, redox_column = get_sweep_results("results/ArcheanOutgassing_sweep")
     characteristic_flux = 0.1*2*10**FO2
     tau_stability = np.log10((10**(redox_column)/(characteristic_flux)/yr))
 
@@ -476,7 +476,7 @@ def figure_4():
     # Figure b #
     ############
 
-    sol = io.read_evolve_output('ZAHNLE_FO2=3.100e+11_oscillate_0.480_amp=2.5e10_T=1e4yr.dat')
+    sol = io.read_evolve_output('results/ZAHNLE_FO2=3.100e+11_oscillate_0.480_amp=2.5e10_T=1e4yr.dat')
     species = ['O2']
     labels = ['O$_2$','CH$_4$']
     for i,sp in enumerate(species):
@@ -503,7 +503,7 @@ def figure_4():
     # Figure c #
     ############
 
-    sol = io.read_evolve_output('ZAHNLE_FO2=3.100e+11_oscillate_0.450_amp=0.7e10_T=1e4yr.dat')
+    sol = io.read_evolve_output('results/ZAHNLE_FO2=3.100e+11_oscillate_0.450_amp=0.7e10_T=1e4yr.dat')
     # species = ['O2','CH4']
     labels = ['O$_2$','CH$_4$']
     for i,sp in enumerate(species):
@@ -524,7 +524,7 @@ def figure_4():
     # Figure d #
     ############
 
-    sol = io.read_evolve_output('ZAHNLE_FO2=3.100e+11_oscillate_0.410_amp=2.5e10_T=1e4yr.dat')
+    sol = io.read_evolve_output('results/ZAHNLE_FO2=3.100e+11_oscillate_0.410_amp=2.5e10_T=1e4yr.dat')
     # species = ['O2','CH4']
     labels = ['O$_2$','CH$_4$']
     for i,sp in enumerate(species):
@@ -577,7 +577,7 @@ def figure_4():
     # plt.show()
 
 def figure_S1():
-    FCH4_FO2, FO2, O2, FCH4, CH4, S8, redox_column = get_sweep_results("ModernValues_sweep")
+    FCH4_FO2, FO2, O2, FCH4, CH4, S8, redox_column = get_sweep_results("results/ModernValues_sweep")
 
     lowerlim = .4
     upperlim = .492
@@ -665,7 +665,7 @@ def figure_S1():
     # plt.show()
     
 def figure_S3():
-    sol = io.read_evolve_output('ZAHNLE_start_FO2=3.1e11_0.44_end_FH2=1.9e11_FCO=2e10.dat')
+    sol = io.read_evolve_output('results/ZAHNLE_start_FO2=3.1e11_0.44_end_FH2=1.9e11_FCO=2e10.dat')
 
     plt.rcParams.update({'font.size': 18})
     fig,ax = plt.subplots(1,1,figsize=[6,5])
@@ -701,11 +701,11 @@ def figure_S3():
     # plt.show()
 
 if __name__ == "__main__":
-    # figure_1()
-    # figure_2()
-    # figure_3()
-    # figure_4()
+    figure_1()
+    figure_2()
+    figure_3()
+    figure_4()
     figure_S1()
-    # figure_S3()
+    figure_S3()
     
     
