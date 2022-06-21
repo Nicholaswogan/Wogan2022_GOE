@@ -1,0 +1,3 @@
+[submodule "PhotochemPy"]
+	path = PhotochemPy
+	url = https://github.com/Nicholaswogan/PhotochemPy
