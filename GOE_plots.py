@@ -12,7 +12,7 @@ from GOE_utils import get_sweep_results, CH4_flux
 def figure_1():
     FCH4_FO2, FO2, O2, FCH4, CH4, S8, redox_column = get_sweep_results("results/ArcheanOutgassing_sweep")
 
-    lowerlim = .4
+    lowerlim = .27
     upperlim = .492
     n = 15
 
@@ -28,14 +28,14 @@ def figure_1():
     ax.set_ylabel('CH$_4$ flux/O$_2$ flux')
     ax.set_xlim(9.5,13)
     ax.set_ylim(lowerlim,upperlim)
-    ax.set_yticks(np.arange(lowerlim,upperlim,.01))
+    ax.set_yticks(np.arange(lowerlim,upperlim,.02))
 
     ax1.grid(alpha=.3)
     ax1.set_xlabel('Log$_{10}$ O$_2$ flux (molecules cm$^{-2}$ s$^{-1}$)')
     ax1.set_ylabel('CH$_4$ flux/O$_2$ flux')
     ax1.set_xlim(9.5,13)
     ax1.set_ylim(lowerlim,upperlim)
-    ax1.set_yticks(np.arange(lowerlim,upperlim,.01))
+    ax1.set_yticks(np.arange(lowerlim,upperlim,.02))
 
     ### a ###
 
@@ -54,16 +54,16 @@ def figure_1():
 
     ax.plot([11.98],[.49],c='C1',marker='o',ms=ms1)
     ax.arrow(11.98,.49,0,-.02,color='C1',lw=lw1,width = .001,head_width=0.1, head_length=0.005,length_includes_head=True,zorder=1000)
-    ax.text(12.1, .478, 'Figure 2a', \
-            size = 15,ha='left', va='bottom',backgroundcolor='w',color='C1')
+    ax.text(12.0, .495, 'Figure 2a', \
+            size = 15,ha='center', va='bottom',backgroundcolor='none',color='C1')
 
     ax.plot([12.02],[.49],c='k',marker='o',ms=ms1)
     ax.arrow(12.02,.49,0,-.04,color='k',lw=lw1,width = .001,head_width=0.1, head_length=0.005,length_includes_head=True)
-    ax.text(12.1, .463, 'Figure 2c', \
+    ax.text(12.1, .455, 'Figure 2c', \
             size = 15,ha='left', va='top',backgroundcolor='w',color='k')
 
-    # ax.text(0.02, 1.04, 'Log$_{10}$ O$_2$ mixing ratio', \
-    #         size = 15,ha='left', va='bottom',transform=ax.transAxes,backgroundcolor='.80')
+    ax.text(0.02, 1.04, 'Log$_{10}$ O$_2$ mixing ratio', \
+            size = 15,ha='left', va='bottom',transform=ax.transAxes,backgroundcolor='.80')
 
     ax.text(0.04, .2, 'Surface S$_8$\ndeposition', \
             size = 15,ha='left', va='bottom',transform=ax.transAxes,color='.1')
@@ -80,7 +80,7 @@ def figure_1():
     zi = griddata((FO2, FCH4_FO2), CH4, (xi[None,:], yi[:,None]), method='linear')
 
     cs = ax1.contour(xi, yi, zi, np.arange(-7,-3,.5),cmap='viridis')
-    ax1.clabel(cs,[-7,-6.5,-6,-5.5,-5,-4.5,-4,-3.5],fmt='%.1f',fontsize=14)
+    ax1.clabel(cs,[-6,-5.5,-5,-4.5,-4,-3.5],fmt='%.1f',fontsize=14)
 
     xi = np.linspace(9.5, 13,n)
     yi = np.linspace(lowerlim, upperlim, n)
@@ -88,17 +88,17 @@ def figure_1():
     cmap_reversed = matplotlib.cm.get_cmap('gray_r')
     cs2 = ax1.contourf(xi, yi, zi, np.arange(-10,36,1),cmap=cmap_reversed)
 
-    # ax1.text(0.02, 1.04, 'Log$_{10}$ CH$_4$ mixing ratio', \
-    #         size = 15,ha='left', va='bottom',transform=ax1.transAxes,backgroundcolor='.80')
+    ax1.text(0.02, 1.04, 'Log$_{10}$ CH$_4$ mixing ratio', \
+            size = 15,ha='left', va='bottom',transform=ax1.transAxes,backgroundcolor='.80')
 
     ax1.plot([11.98],[.49],c='C1',marker='o',ms=ms1)
     ax1.arrow(11.98,.49,0,-.02,color='C1',lw=lw1,width = .001,head_width=0.1, head_length=0.005,length_includes_head=True,zorder=1000)
-    ax1.text(12.1, .48, 'Figure 2a', \
-            size = 15,ha='left', va='bottom',backgroundcolor='w',color='C1')
+    ax1.text(12.0, .495, 'Figure 2a', \
+            size = 15,ha='center', va='bottom',backgroundcolor='none',color='C1')
 
     ax1.plot([12.02],[.49],c='k',marker='o',ms=ms1)
     ax1.arrow(12.02,.49,0,-.04,color='k',lw=lw1,width = .001,head_width=0.1, head_length=0.005,length_includes_head=True)
-    ax1.text(12.1, .465, 'Figure 2c', \
+    ax1.text(12.1, .455, 'Figure 2c', \
             size = 15,ha='left', va='top',backgroundcolor='w',color='k')
 
     ax1.text(0.04, .7, 'anoxic', \
@@ -428,9 +428,9 @@ def figure_4():
     fig.patch.set_facecolor("w")
     gs = fig.add_gridspec(150, 100)
     ax1 = fig.add_subplot(gs[0:95, :40])
-    ax = fig.add_subplot(gs[0:46, 65:100])
-    ax3 = fig.add_subplot(gs[54:96, 65:100])
-    ax5 = fig.add_subplot(gs[104:150, 65:100])
+    ax = fig.add_subplot(gs[0:46, 60:100])
+    ax3 = fig.add_subplot(gs[54:96, 60:100])
+    ax5 = fig.add_subplot(gs[104:150, 60:100])
     xlim1 = 10000*3
     yr = 365*24*60*60
 
@@ -442,7 +442,7 @@ def figure_4():
     characteristic_flux = 0.1*2*10**FO2
     tau_stability = np.log10((10**(redox_column)/(characteristic_flux)/yr))
 
-    lowerlim = .4
+    lowerlim = .27
     upperlim = .492
     n = 15
     xi = np.linspace(10, 13,n)
@@ -457,18 +457,18 @@ def figure_4():
     cmap_reversed = matplotlib.cm.get_cmap('pink_r')
     cs = ax1.contourf(xi, yi, zi,15,cmap=cmap_reversed)
     axins = inset_axes(ax1,
-                       width="100%",  # width = 5% of parent_bbox width
-                       height="5%",  # height : 50%
-                       loc='lower left',
-                       bbox_to_anchor=(0, -.4, 1, 1),
-                       bbox_transform=ax1.transAxes,
-                       borderpad=0,
-                       )
+                    width="100%",  # width = 5% of parent_bbox width
+                    height="5%",  # height : 50%
+                    loc='lower left',
+                    bbox_to_anchor=(0, -.4, 1, 1),
+                    bbox_transform=ax1.transAxes,
+                    borderpad=0,
+                    )
     cbar = fig.colorbar(cs, ticks=np.arange(-1,6,1),cax=axins, shrink=0.8,orientation="horizontal")
     cbar.set_label(r'Log10 $\tau_\mathrm{inertia}$ (years)', rotation=0)
     ax1.set_xlim(10,13)
     ax1.set_ylim(lowerlim,upperlim)
-    ax1.set_yticks(np.arange(lowerlim,upperlim,.01))
+    ax1.set_yticks(np.arange(lowerlim,upperlim,.02))
     ax1.set_xlabel('Log$_{10}$ O$_2$ flux (molecules cm$^{-2}$ s$^{-1}$)')
     ax1.set_ylabel('CH$_4$ flux/O$_2$ flux')
 
@@ -483,12 +483,12 @@ def figure_4():
         ax.plot(sol['time'][:]/yr,sol[sp][:,0],'-',lw=2,label=labels[i])
     ax.set_yscale('log')
     ax.set_ylabel('O$_2$\nmixing ratio')
-    ax.set_ylim(1e-9,1e-3)
-    ax.set_yticks(10.**np.arange(-8,-3,2))
+    ax.set_ylim(1e-9,1e-1)
+    ax.set_yticks(10.**np.arange(-8,-1,2))
     ax.set_xlim(0,xlim1)
     ax.grid(alpha=.8)
-    ax.text(0.45, .11, 'anoxic', \
-            size = 20, ha='center', va='bottom',transform=ax.transAxes,color='0')
+    ax.text(0.01, .97, 'Big CH$_4$ makes low O$_2$ '+r'$\bf{stable}$', \
+            size = 14, ha='left', va='top',transform=ax.transAxes,color='0',backgroundcolor='w')
     ax.set_xticklabels([])
     ax2 = ax.twinx()
     ax2.plot(sol['time']/yr, CH4_flux(sol['time'],3.100e+11*.48,2.5e10,1e4*yr),'C1--',lw=2,label='CH$_4$ Flux')
@@ -510,10 +510,12 @@ def figure_4():
         ax3.plot(sol['time'][:]/yr,sol[sp][:,0],'-',lw=2,label=labels[i])
     ax3.set_yscale('log')
     ax3.set_ylabel('O$_2$\nmixing ratio')
-    ax3.set_ylim(1e-9,1e-3)
-    ax3.set_yticks(10.**np.arange(-8,-3,2))
+    ax3.set_ylim(1e-9,1e-1)
+    ax3.set_yticks(10.**np.arange(-8,-1,2))
     ax3.set_xlim(0,xlim1)
     ax3.grid(alpha=.8)
+    ax3.text(0.01, .97, 'Small O$_2$ and CH$_4$ makes\nO$_2$ '+r'$\bf{unstable}$', \
+            size = 14, ha='left', va='top',transform=ax3.transAxes,color='0',backgroundcolor='w')
     ax3.set_xticklabels([])
     ax4 = ax3.twinx()
     ax4.plot(sol['time']/yr, CH4_flux(sol['time'],3.100e+11*.45,0.7e10,1e4*yr),'C1--',lw=2,label='CH$_4$ Flux')
@@ -531,13 +533,15 @@ def figure_4():
         ax5.plot(sol['time'][:]/yr,sol[sp][:,0],'-',lw=2,label=labels[i])
     ax5.set_yscale('log')
     ax5.set_ylabel('O$_2$\nmixing ratio')
-    ax5.set_ylim(1e-9,1e-3)
-    ax5.set_yticks(10.**np.arange(-8,-3,2))
+    ax5.set_ylim(1e-9,1e-1)
+    ax5.set_yticks(10.**np.arange(-8,-1,2))
     ax5.set_xlim(0,xlim1)
     ax5.grid(alpha=.8)
     ax5.set_xlabel('Time (years)')
-    ax5.text(0.5, .65, 'oxic', \
-            size = 20, ha='center', va='bottom',transform=ax5.transAxes,color='0')
+    ax5.text(0.01, .97, 'Big O$_2$ makes high O$_2$ '+r'$\bf{stable}$', \
+            size = 14, ha='left', va='top',transform=ax5.transAxes,color='0',backgroundcolor='w')
+    # ax5.text(0.5, .65, 'oxic', \
+    #         size = 20, ha='center', va='bottom',transform=ax5.transAxes,color='0')
     # ax5.set_xticks([0,200,400,600])
     # ax5.set_xticklabels([])
     ax6 = ax5.twinx()
@@ -545,13 +549,11 @@ def figure_4():
     # labelLine(ax5.get_lines()[0],200,yoffset=.3,yoffset_logspace=True,align=False,zorder=0)
     # labelLine(ax5.get_lines()[1],100,yoffset=.3,yoffset_logspace=True,align=False,zorder=0)
     # ax2.set_yscale('log')
-    ax6.set_ylim(.7e11,2.1e11)
-    ax6.set_yticks(np.array([1,1.5,2])*1e11)
     ax6.set_ylabel('CH$_4$ Flux\n(molec.\ncm$^{-2}$ s$^{-1}$)')
 
-    ax2.set_ylim(1e11,1.9e11)
-    ax4.set_ylim(1e11,1.9e11)
-    ax6.set_ylim(1e11,1.9e11)
+    ax2.set_ylim(1e11,2.0e11)
+    ax4.set_ylim(1e11,2.0e11)
+    ax6.set_ylim(1e11,2.0e11)
 
     ax1.plot([np.log10(3.100e+11)],[.48],'C3*',zorder=11,ms=10)
     ax1.text(11.45, .472, 'Figure 4b', \
@@ -579,7 +581,8 @@ def figure_4():
 def figure_S1():
     FCH4_FO2, FO2, O2, FCH4, CH4, S8, redox_column = get_sweep_results("results/ModernValues_sweep")
 
-    lowerlim = .4
+
+    lowerlim = .27
     upperlim = .492
 
     plt.rcParams.update({'font.size': 18})
@@ -591,14 +594,14 @@ def figure_S1():
     ax.set_ylabel('CH$_4$ flux/O$_2$ flux')
     ax.set_xlim(9.5,13)
     ax.set_ylim(lowerlim,upperlim)
-    ax.set_yticks(np.arange(lowerlim,upperlim,.01))
+    ax.set_yticks(np.arange(lowerlim,upperlim,.02))
 
     ax1.grid(alpha=.3)
     ax1.set_xlabel('Log$_{10}$ O$_2$ flux (molecules cm$^{-2}$ s$^{-1}$)')
     ax1.set_ylabel('CH$_4$ flux/O$_2$ flux')
     ax1.set_xlim(9.5,13)
     ax1.set_ylim(lowerlim,upperlim)
-    ax1.set_yticks(np.arange(lowerlim,upperlim,.01))
+    ax1.set_yticks(np.arange(lowerlim,upperlim,.02))
 
     ### a ###
     n = 20
@@ -624,8 +627,8 @@ def figure_S1():
 
     ax.plot([12],[.45],c='0',marker='o',ms=5)
     ax.arrow(12,.45,np.log10(1.8e12)-12,0,color='0',lw=2,width = .0005,head_width=0.003
-              , head_length=0.1,length_includes_head=True)
-    ax.text(11.38, .445, 'Figure 2b', \
+            , head_length=0.1,length_includes_head=True)
+    ax.text(11.25, .45, 'Figure 2b', \
             size = 15,ha='left', va='top',color='0',zorder=100000)
 
 
@@ -651,8 +654,8 @@ def figure_S1():
 
     ax1.plot([12],[.45],c='0',marker='o',ms=5)
     ax1.arrow(12,.45,np.log10(1.8e12)-12,0,color='0',lw=2,width = .0005,head_width=0.003
-              , head_length=0.1,length_includes_head=True)
-    ax1.text(11.45, .445, 'Figure 2b', \
+            , head_length=0.1,length_includes_head=True)
+    ax1.text(11.25, .45, 'Figure 2b', \
             size = 15,ha='left', va='top',color='0')
 
     ax.text(.98, .02, '(a)', \

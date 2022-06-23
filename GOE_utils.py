@@ -60,9 +60,10 @@ def GOE(pc, initial, final, filename, rtol = 1e-3, atol = 1e-30, nt = 1000, t_ev
     nsteps = 100000, amount2save=1)
 
 
-def get_sweep_results(foldername):
+def get_sweep_results(foldername, ratios = None):
 
-    ratios = np.arange(.50,.36,-.005)
+    if ratios == None:
+        ratios = np.arange(.50,.260,-.005)
 
     FCH4_FO2 = []
     FO2 = []
